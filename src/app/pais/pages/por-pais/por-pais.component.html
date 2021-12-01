@@ -1,1 +1,14 @@
 <h2>Por Pais</h2>
+<hr>
+<div>
+    <form  (ngSubmit)="buscar()" autocomplete="off">
+      <input class="form-control"  [(ngModel)]="termino"  type="text" name="termino" placeholder="Buscar país">
+    </form>
+</div>
+<hr>
+<div *ngIf="hayError" class="alert alert-danger" role="alert">
+   No se encontró nada con el término  {{termino}}
+</div>
+<div *ngIf="!hayError">
+ <app-pais-tabla [paises] ="paises"></app-pais-tabla>
+</div>
