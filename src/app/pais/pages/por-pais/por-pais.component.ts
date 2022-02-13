@@ -22,7 +22,7 @@ export class PorPaisComponent {
       .subscribe({
         next: (paises) => {console.log(paises);this.paises = paises},
         error:(error) => {console.error(error); this.hayError = true; this.paises = []},
-        complete:() => console.info('complete')
+        //complete:() => console.info('complete')
       })
     this.termino = '';
   }

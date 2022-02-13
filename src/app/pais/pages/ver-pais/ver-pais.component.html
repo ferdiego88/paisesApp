@@ -1,1 +1,82 @@
-<h2>Ver País</h2>
+
+<div *ngIf="!pais; else divPais "  class="alert alert-info">
+    Espere por favor
+</div>
+
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1> País: {{pais.name.common}} </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="pais.flags.png" class="img-flag-detail" alt="">
+        </div>
+
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong> Nombre Oficial:</strong>
+                    {{ pais.translations['spa']['official'] }}
+                </li>  
+                <li class="list-group-item">
+                    
+                    <div class="row">
+                        <div class="col-4">
+                            <strong> Escudo de Armas:</strong>
+                        </div>
+                        <div class="col">
+                            
+                            <img [src]="pais.coatOfArms.png" class="img-coatOfArms" alt="">
+                        </div>
+                    </div>
+                   
+                </li>
+                <li class="list-group-item">
+                    <strong> Capital:</strong>
+                    {{ pais.capital[0] }}
+                </li>  
+                <li class="list-group-item">
+                    <strong> Población:</strong>
+                    {{pais.population | number}}
+                </li>
+
+                <li class="list-group-item">
+                    <strong> Continente:</strong>
+                    {{pais.continents[0]}}
+                </li>
+
+                <li class="list-group-item">
+                    <strong> Lenguajes:</strong>
+                    {{languages}}
+                </li>
+
+                <li class="list-group-item">
+                    <strong> Moneda Oficial:</strong>
+                    {{currencies}}
+                </li>
+
+                <li class="list-group-item">
+                    <strong> Zona Horaria:</strong>
+                    {{pais.timezones[0]}}
+                </li>
+
+                
+                <li class="list-group-item">
+                    <strong> Google Maps URL: </strong>
+                    <a [href]="googleMapsUrl" target="blank"> {{pais.maps.googleMaps}} </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones:</h3>
+    <div class="row">
+        <div class="col">
+            <span *ngFor="let badge of badges" class="badge bg-primary margin-badge"> {{badge}} </span>
+        </div>
+    </div>
+</ng-template>
