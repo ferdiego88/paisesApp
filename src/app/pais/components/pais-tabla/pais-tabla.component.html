@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody *ngFor="let pais of paises; let i = index">
-    <tr>
+    <tr class="animate__animated animate__fadeIn animate__faster">
       <th scope="row"> {{ i+1}} </th>
       <td>  <img [src]="pais.flags.png" alt="" class="img-thumbnail">  </td>
       <td> {{ pais.capital }}, {{ pais.name.common }}   </td>

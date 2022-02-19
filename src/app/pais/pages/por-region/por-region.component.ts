@@ -18,7 +18,9 @@ export class PorRegionComponent  {
 
 
   activarRegion(region: string) {
+    if (region === this.regionActiva) {return;}
     this.regionActiva = region;
+    this.paises = [];
     this.buscar(region);
     // TODO: Hacer el llamado al servicio
   }
@@ -28,7 +30,7 @@ export class PorRegionComponent  {
     this.termino = termino;
     this.paisService.getPaisPorRegion(this.termino)
       .subscribe({
-        next: (paises) => {console.log(paises);this.paises = paises},
+        next: (paises) => {this.paises = paises},
         error:(error) => {console.error(error); this.hayError = true; this.paises = []},
         //complete:() => console.info('complete')
       })

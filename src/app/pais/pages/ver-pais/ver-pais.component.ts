@@ -51,7 +51,6 @@ export class VerPaisComponent implements OnInit {
           for (let index = 0; index < monedas.length; index++) {
             this.currencies.push(monedas[index].name);
           }
-          console.log(this.currencies);
           
       });
 

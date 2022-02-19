@@ -8,17 +8,19 @@
     'btn-primary': regionActiva === region,
     'btn-outline-primary': regionActiva !== region
 }" -->
-<div class="row">
-    <div class="col">
-        <button *ngFor="let region of regiones" 
-                [class]="getRegionCSS(region)"
-                (click)="activarRegion(region)" >
-                {{region | titlecase}}
-        </button>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <div class="row">
+        <div class="col">
+            <button *ngFor="let region of regiones" 
+                    [class]="getRegionCSS(region)"
+                    (click)="activarRegion(region)" >
+                    {{region | titlecase}}
+            </button>
+        </div>
     </div>
+    
+    <hr>
 </div>
-
-<hr>
 <div *ngIf="hayError" class="alert alert-danger" role="alert">
    No se encontró nada con el término  {{termino}}
 </div>
